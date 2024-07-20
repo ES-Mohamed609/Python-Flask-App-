@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact List</title>
+</head>
+<body>
+    <h2>Contact List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Full Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td><a href="{{ url_for('contact_details', contact_id=contact.id) }}">{{ contact.full_name }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('add_contact') }}">Add Contact</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
